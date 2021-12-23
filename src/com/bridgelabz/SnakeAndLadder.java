@@ -12,8 +12,10 @@ public class SnakeAndLadder
     public static void main(String[] args)
     {
         int playerPosition = 0;
+        int dicePlayed = 0;
         while (playerPosition <= WIN)
         {
+            dicePlayed++;
             int ROLL_DICE = (int) (Math.random() * 6 ) + 1;
             System.out.println("After Rolling Dice We Get ::"+ROLL_DICE);
             int playerCheckOption;
@@ -36,6 +38,7 @@ public class SnakeAndLadder
                     {
                         System.out.println("Player won");
                         System.out.println("Position :: "+playerPosition);
+                        System.out.println("We just make "+dicePlayed+" Number of dice to win the game");
                         System.exit(0);
                     }
                     break;
@@ -57,6 +60,5 @@ public class SnakeAndLadder
             }
             System.out.println("Player current position is "+ playerPosition);
         }
-
     }
 }
