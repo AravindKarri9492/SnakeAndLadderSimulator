@@ -28,6 +28,16 @@ public class SnakeAndLadder
                 case LADDER:
                     playerPosition = playerPosition + ROLL_DICE;
                     System.out.println("Congratulations !! You Got the ladder your position will be increased by " + ROLL_DICE);
+                    if(playerPosition > WIN)
+                    {
+                        playerPosition = playerPosition - ROLL_DICE;
+                    }
+                    else if (playerPosition == WIN)
+                    {
+                        System.out.println("Player won");
+                        System.out.println("Position :: "+playerPosition);
+                        System.exit(0);
+                    }
                     break;
 
                 case SNAKE:
