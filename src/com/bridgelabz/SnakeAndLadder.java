@@ -9,7 +9,7 @@ public class SnakeAndLadder
     public static void main(String[] args)
     {
         int playerPosition = 0;
-        int ROLL_DICE = (int) (Math.random() * 6 );
+        int ROLL_DICE = (int) (Math.random() * 6 ) + 1;
         System.out.println("After Rolling Dice We Get ::"+ROLL_DICE);
         int playerCheckOption;
         playerCheckOption = (int)(Math.random() *3 ) + 1;
