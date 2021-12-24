@@ -13,7 +13,7 @@ public class SnakeAndLadder
     {
         int playerPosition = 0;
         int dicePlayed = 0;
-        while (playerPosition <= WIN)
+        while (playerPosition <WIN)
         {
             dicePlayed++;
             int ROLL_DICE = (int) (Math.random() * 6 ) + 1;
@@ -30,35 +30,30 @@ public class SnakeAndLadder
                 case LADDER:
                     playerPosition = playerPosition + ROLL_DICE;
                     System.out.println("Congratulations !! You Got the ladder your position will be increased by " + ROLL_DICE);
-                    if(playerPosition > WIN)
-                    {
-                        playerPosition = playerPosition - ROLL_DICE;
-                    }
-                    else if (playerPosition == WIN)
-                    {
-                        System.out.println("Player won");
-                        System.out.println("Position :: "+playerPosition);
-                        System.out.println("We just make "+dicePlayed+" Number of dice to win the game");
-                        System.exit(0);
-                    }
                     break;
 
                 case SNAKE:
+                    playerPosition = playerPosition - ROLL_DICE;
+                    System.out.println("Oops !! You just got bitten by snake your position will be increased by " + ROLL_DICE);
                     if(playerPosition <= 0)
                     {
                         playerPosition = START_POSITION;
                     }
-                    else
-                    {
-                        playerPosition = playerPosition - ROLL_DICE;
-                        System.out.println("Oops !! You just got bitten by snake your position will be increased by " + ROLL_DICE);
-                        break;
-                    }
+                    break;
 
                 default:
                     System.out.println("Something went wrong!!");
             }
             System.out.println("Player current position is "+ playerPosition);
+            if(playerPosition > WIN)
+            {
+                playerPosition = playerPosition - ROLL_DICE;
+            }
+            else if (playerPosition == WIN)
+            {
+                System.out.println("Player won");
+                System.out.println("We just make "+dicePlayed+" Number of dice to win the game");
+            }
         }
     }
 }
